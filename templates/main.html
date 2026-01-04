@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <section class="todo">
+        <h2>To-do list</h2>
+        <div class="input">
+            <input type="text" class="input-field" id="todoinput" placeholder="Add a new to-do">
+            <button class="btn">Add</button>
+        </div>
+        <ul class="scroll">
+            <li id="todoList"></li>
+        </ul>
+        <div>
+            <hr class="counter">
+            <div class="counter-container">
+                <p><span id="todoCount">0</span> items total</p>
+                <button id="deleteButton">delete all</button>
+                <button id="deleteButton2">delete done</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <p class="made-by">made by</p>
+            <p class="author">Khang</p>
+        </div>
+    </footer>
+</body>
+</html>

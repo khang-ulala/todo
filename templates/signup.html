@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+    <section class="register">
+        <h2>Start now</h2>
+
+        <div class="input-box">
+            <input type="text" class="input-field" placeholder="Username">
+            <input type="email" class="input-field" placeholder="Email">
+            <input type="password" class="input-field" placeholder="Password">
+
+            <label class="checkbox">
+                <input type="checkbox">
+                <span>I accept the Terms and Conditions</span>
+            </label>
+
+            <button id="signup-btn">Sign up</button>
+        </div>
+
+        <p id="or">use other accounts</p>
+
+        <div class="browser-login">
+            <button class="browser"><img src="{{ url_for('static', filename='images/gwindow.png') }}"></button>
+            <button class="browser"><img src="{{ url_for('static', filename='images/google.png') }}"></button>
+            <button class="browser"><img src="{{ url_for('static', filename='images/github.png') }}"></button>
+        </div>
+    </section>
+</body>
+</html>

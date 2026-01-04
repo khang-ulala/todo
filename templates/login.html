@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <section class="login">
+        <h2>Login with account</h2>
+        <div class="browser-login">
+            <button class="browser"><img src="{{ url_for('static', filename='images/gwindow.png') }}"></button>
+            <button class="browser"><img src="{{ url_for('static', filename='images/google.png') }}"></button>
+            <button class="browser"><img src="{{ url_for('static', filename='images/github.png') }}"></button>
+        </div>
+        <p id="or">OR</p>
+        <div class="input-box">
+            <input type="text" class="input-field" id="name-input" placeholder="Account name">
+            <input type="text" class="input-field" id="pass-input" placeholder="Password">
+            <button id="enter">Log in</button>
+        </div>
+        <button id="forgot">Forgot the password?</button>
+        <hr>
+        <p id="policies">This site is protected by reCAPTCHA and use the <button id="terms-and-conditions">terms and conditions</button></p>
+    </section>
+</body>
+</html>

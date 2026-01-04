@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #5b9df9, #325ef4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    background-color: white;
+    border-radius: 20px;
+    width: 600px;
+    height: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.login h2 {
+    color: #0c1c46;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.browser-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 5px
+}
+
+.browser {
+    width: 170px
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+#or {
+    color:#aaa;
+    padding-bottom: 5px;
+    padding-top: 10px
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    color: #333;
+    margin: 5px;
+    width: 100%;
+}
+
+.input-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #aaa;
+    font-size: 14px;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.input-box #enter{
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    margin: 5px;
+    background-color: rgb(121, 21, 21);
+    color: white;
+    cursor: pointer;
+}
+
+.input-box #enter:hover{
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    margin: 5px;
+    background-color: rgb(95, 16, 16);
+    color: white;
+    cursor: pointer;
+}
+
+#forgot {
+    background: none;
+    border: none;
+    color: #5b9df9;
+    cursor: pointer;
+    padding: 10px;
+    font-style: bold;
+    margin-left: auto;
+}
+
+#forgot:hover {
+    background: none;
+    border: none;
+    color: #487ec9;
+    cursor: pointer;
+    padding: 10px;
+    font-style: bold;
+    margin-left: auto;
+}
+
+#terms-and-conditions {
+    background: none;
+    border: none;
+    color: mediumorchid;
+    cursor: pointer;
+    font-style: bold;
+    font-size:17px
+}
+
+#terms-and-conditions:hover {
+    background: none;
+    border: none;
+    color: mediumpurple;
+    cursor: pointer;
+    font-style: bold;
+}
