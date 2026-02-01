@@ -14,12 +14,22 @@
             <button class="browser"><img src="{{ url_for('static', filename='images/google.png') }}"></button>
             <button class="browser"><img src="{{ url_for('static', filename='images/github.png') }}"></button>
         </div>
+
         <p id="or">OR</p>
-        <div class="input-box">
+
+        <!-- <div class="input-box">
             <input type="text" class="input-field" id="name-input" placeholder="Account name">
             <input type="text" class="input-field" id="pass-input" placeholder="Password">
             <button id="enter">Log in</button>
-        </div>
+        </div> -->
+
+        <form method="POST" action="{{ url_for('handle_get')}}">
+            <div class="input-box">
+                <input type="text" class="input-field" id="name-input" class name="username" placeholder="Account name">
+                <input type="password" class="input-field" id="pass-input" class name="password" placeholder="Password">
+                <button type="submit" id="enter">Log in</button>
+            </div>
+        </form>
         <button id="forgot">Forgot the password?</button>
         <hr>
         <p id="policies">This site is protected by reCAPTCHA and use the <button id="terms-and-conditions">terms and conditions</button></p>

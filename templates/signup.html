@@ -11,16 +11,22 @@
         <h2>Start now</h2>
 
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Username">
+            <!-- <input type="text" class="input-field" placeholder="Username">
             <input type="email" class="input-field" placeholder="Email">
-            <input type="password" class="input-field" placeholder="Password">
+            <input type="password" class="input-field" placeholder="Password"> -->
+
+            <form method="POST" action="{{ url_for('handle_post') }}">
+                <input type="text" name="username"  class="input-field" placeholder="Username">
+                <input type="email" name="email" class="input-field" placeholder="Email">
+                <input type="password" name="password" class="input-field" placeholder="Password">
+                <button type="submit" id="signup-btn">Sign up</button>
+            </form>
 
             <label class="checkbox">
                 <input type="checkbox">
                 <span>I accept the Terms and Conditions</span>
             </label>
 
-            <button id="signup-btn">Sign up</button>
         </div>
 
         <p id="or">use other accounts</p>
