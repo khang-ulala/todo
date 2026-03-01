@@ -39,9 +39,17 @@ print(users_value)
 def home():
     return render_template('home.html')
 
+@app.route('/login_rq')
+def login_rq():
+    return redirect(url_for('login'))
+
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/signup_rq')
+def signup_rq():
+    return redirect(url_for('signup'))
 
 @app.route('/signup')
 def signup():
@@ -87,6 +95,14 @@ def handle_post():
         else:
             return render_template("signup.html")
     return render_template("signup.html")
+
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    '''
+    lay du lieu khi co su thay doi
+    '''
+    data = list(todo.find({}, {'_id': 0}))
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)
