@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 fetch("/get_data")
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((data) => {
         // doi json thanh javascript va hien thi
         displayTasks(data)
