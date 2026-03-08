@@ -106,3 +106,24 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/add_task', methods=['POST'])
+def add_task():
+    # lay thong tin duoc gui xuong tu js
+    task_no = request.json['no']
+    task_text = request.json['title']
+    task_status = request.json['completedCheck']
+    print(str(task_text))
+
+    newTask = {
+        "no": task_no,
+        "title": task_text,
+        "CompletedCheck": task_status
+    }
+
+    result = todo.insert_one(newTask)
+    newTask["_id"] = str(result.inserted_id)
+
+    # tra ve todolist len lai js
+    data = list(todo.find({}, {"_id": 0}))
+    return jsonify(data)

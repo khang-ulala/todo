@@ -4,6 +4,7 @@ const addButton = document.querySelector('.btn')
 const deleteButton = document.getElementById('deleteButton')
 const todoList = document.getElementById('todoList')
 const todoCount = document.getElementById('todoCount')
+let countNo = 0
 
 function displayTasks(todo){
     // hien thi
@@ -13,8 +14,8 @@ function displayTasks(todo){
         const p = document.createElement('p')
         p.innerHTML = `
         <div class='todo-container'>
-            <p id='todo-${index}' class='${ item.disabled ? 'disabled' : '' }' onclick='editTask(${index})'>
-            <input type='checkbox' class='todo-checkbox' id='input-${index}' ${ item.disabled ? 'checked' : '' }>${item.text}</p>
+            <p id='todo-${index}' class='${ item.completedCheck ? 'disabled' : '' }' onclick='editTask(${index})'>
+            <input type='checkbox' class='todo-checkbox' id='input-${index}' ${ item.completedCheck ? 'checked' : '' }>${item.title}</p>
         </div>
         `
         const checkbox = p.querySelector('.todo-checkbox')
@@ -27,25 +28,41 @@ function displayTasks(todo){
     todoCount.textContent = todo.length
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-    console.log('document click')
-    addButton.addEventListener('click', addTask)
-    todoInput.addEventListener('keydown', function(event){
-        if (event.key === 'Enter'){
-            event.preventDefault()
-            addTask()
-        }
-    })
-    deleteButton.addEventListener('click', deleteAllTasks)
-    deleteButton2.addEventListener('click', deleteAllTasks2)
-    displayTasks()
-})
+function addTask() {
+    // them mot nhiem vu
+    // in ra thong tin duoc nhap vao
+    console.log("todoInput: ", todoInput.value)
+    //gan du lieu duoc nhap vao bien
+    const newText = todoInput.value
+    if(newText !== "") {
+        fetch("/add_task", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                no: countNo + 1,
+                completedCheck: false,
+                title: newText,
+            }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            // xu li du lieu tra ve
+            displayTasks(data)
+            console.log(data)
+        })
+        .catch((error) => {console.error("Error:", error)})
+    }
+}
 
 fetch("/get_data")
     .then((response) => response.json())
     .then((data) => {
         // doi json thanh javascript va hien thi
         displayTasks(data)
+        todoInput.value = ""
+        console.log(data)
     })
     .catch((error) => {
         console.error('Error:', error)
@@ -65,7 +82,7 @@ fetch("/get_data")
 
 // function deleteAllTasks2(){
 //     // xoa het task
-//     todo = todo.filter(item => !item.disabled)
+//     todo = todo.filter(item => !item.completedCheck)
 //     saveToLocalStorage()
 //     displayTasks()
 // }

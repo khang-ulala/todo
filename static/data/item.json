@@ -2,26 +2,26 @@
     {
         "no": 1,
         "title": "nau an",
-        "completed-check": true
+        "completedCheck": true
     },
     {
         "no": 2,
         "title": "lam bai",
-        "completed-check": true
+        "completedCheck": true
     },
     {
         "no": 3,
         "title": "an com",
-        "completed-check": true
+        "completedCheck": true
     },
     {
         "no": 4,
         "title": "quet nha",
-        "completed-check": true
+        "completedCheck": true
     },
     {
         "no": 5,
         "title": "lau ban",
-        "completed-check": false
+        "completedCheck": false
     }
 ]
