@@ -104,9 +104,6 @@ def get_data():
     data = list(todo.find({}, {'_id': 0}))
     return jsonify(data)
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 @app.route('/add_task', methods=['POST'])
 def add_task():
     # lay thong tin duoc gui xuong tu js
@@ -127,3 +124,12 @@ def add_task():
     # tra ve todolist len lai js
     data = list(todo.find({}, {"_id": 0}))
     return jsonify(data)
+
+@app.route('/delete_all', methods=['POST'])
+def delete_all():
+    result = todo.delete_many({})
+    data = list(todo.find({}, {"_id": 0}))
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)

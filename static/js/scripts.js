@@ -2,6 +2,7 @@
 const todoInput = document.getElementById('todoinput')
 const addButton = document.querySelector('.btn')
 const deleteButton = document.getElementById('deleteButton')
+const deleteButton2 = document.getElementById('deleteButton2')
 const todoList = document.getElementById('todoList')
 const todoCount = document.getElementById('todoCount')
 let countNo = 0
@@ -50,10 +51,35 @@ function addTask() {
         .then((data) => {
             // xu li du lieu tra ve
             displayTasks(data)
+            todoInput.value = ""
             console.log(data)
         })
         .catch((error) => {console.error("Error:", error)})
     }
+}
+
+function deleteAllTasks() {
+    // xoa tat ca value
+    console.log("Delete1: ", true)
+    fetch("/delete_all", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                no: 0,
+                completedCheck: false,
+                title: 0,
+            }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            // xu li du lieu tra ve
+            displayTasks(data)
+            todoInput.value = ""
+            console.log(data)
+        })
+        .catch((error) => {console.error("Error:", error)})
 }
 
 fetch("/get_data")
